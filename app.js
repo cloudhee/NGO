@@ -82,7 +82,7 @@ const PRIORITY_TITLE = {
   gray:   '있어도 없어도 → 개 중요로 변경',
 };
 const TODO_KEYS    = ['pre', 'places', 'food', 'shopping', 'donki'];
-const PACKING_KEYS = ['hazel', 'kyle'];
+const PACKING_KEYS = ['hazel'];
 
 // ===== 로컬 상태 (Firebase에서 받아온 데이터 캐시) =====
 let state = JSON.parse(JSON.stringify(INITIAL_DATA));
