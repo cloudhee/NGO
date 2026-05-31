@@ -266,6 +266,42 @@ function initPackingDrag(person) {
   });
 }
 
+// ===== 비밀번호 =====
+const PASS = 'ngo2026';
+
+function initLock() {
+  const screen = document.getElementById('lock-screen');
+  const input  = document.getElementById('lock-input');
+  const btn    = document.getElementById('lock-btn');
+  const error  = document.getElementById('lock-error');
+
+  // 이미 인증된 경우 바로 통과
+  if (sessionStorage.getItem('ngo-auth') === '1') {
+    screen.style.display = 'none';
+    return;
+  }
+
+  // body 스크롤 막기
+  document.body.style.overflow = 'hidden';
+
+  function tryUnlock() {
+    if (input.value === PASS) {
+      sessionStorage.setItem('ngo-auth', '1');
+      screen.classList.add('unlocking');
+      document.body.style.overflow = '';
+      setTimeout(() => screen.remove(), 400);
+    } else {
+      error.textContent = '코드가 틀렸어요 🔒';
+      input.value = '';
+      input.classList.add('shake');
+      setTimeout(() => input.classList.remove('shake'), 500);
+    }
+  }
+
+  btn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+}
+
 // ===== D-DAY =====
 function initDday() {
   const DEPART = new Date('2026-06-03T09:10:00');
@@ -425,6 +461,7 @@ function initEvents() {
 
 // ===== 초기화 =====
 document.addEventListener('DOMContentLoaded', () => {
+  initLock();
   TODO_KEYS.forEach(renderTodoList);
   PACKING_KEYS.forEach(renderPackingList);
   renderMemos();
