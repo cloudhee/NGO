@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🗾 나고야 여행 2026</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="hero-sub">2026. 06. 03 — 06. 07</p>
+      <h1 class="hero-title">名古屋 여행</h1>
+      <p class="hero-desc">Hazel &amp; Kyle</p>
+      <div class="hero-dday" id="hero-dday"></div>
+      <div class="hero-btns">
+        <a class="hero-map-btn" href="https://maps.app.goo.gl/mg1UBUBNzxgrcBBZA" target="_blank">🏨 숙소</a>
+        <a class="hero-map-btn secondary" href="https://maps.app.goo.gl/W7Wh3dNA8cCb784M9" target="_blank">📍 장소 아카이빙</a>
+        <a class="hero-map-btn secondary" href="#flight-section">✈️ 항공권</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 항공권 정보 -->
+    <section class="card flight-card" id="flight-section">
+      <div class="flight-header" onclick="toggleFlight()">
+        <h2 class="section-title no-mb">✈️ 항공권 정보</h2>
+        <span class="flight-toggle-icon" id="flight-toggle-icon">▾</span>
+      </div>
+      <div class="flight-body" id="flight-body">
+
+        <!-- 가는 편 -->
+        <div class="flight-ticket outbound">
+          <div class="flight-badge outbound-badge">가는 편</div>
+          <div class="flight-date">2026.06.03 (수)</div>
+          <div class="flight-route">
+            <div class="flight-point">
+              <span class="flight-city">서울 / 인천</span>
+              <span class="flight-time">09:10</span>
+              <span class="flight-iata">ICN</span>
+            </div>
+            <div class="flight-middle">
+              <span class="flight-direct">직항</span>
+              <div class="flight-line">
+                <span class="flight-dot"></span>
+                <span class="flight-dash"></span>
+                <span class="plane-icon">✈</span>
+                <span class="flight-dash"></span>
+                <span class="flight-dot"></span>
+              </div>
+              <span class="flight-duration">1h 45m</span>
+            </div>
+            <div class="flight-point right">
+              <span class="flight-city">나고야</span>
+              <span class="flight-time">10:55</span>
+              <span class="flight-iata">NGO</span>
+            </div>
+          </div>
+          <div class="flight-info-row">
+            <span class="flight-info-item"><span class="fi-label">편명</span><span class="fi-val asiana">OZ122</span></span>
+            <span class="flight-info-item"><span class="fi-label">기종</span><span class="fi-val">A330</span></span>
+            <span class="flight-info-item"><span class="fi-label">클래스</span><span class="fi-val">이코노미(T)</span></span>
+            <span class="flight-info-item"><span class="fi-label">예약</span><span class="fi-val confirmed">확약</span></span>
+          </div>
+        </div>
+
+        <div class="flight-divider">⇅</div>
+
+        <!-- 오는 편 -->
+        <div class="flight-ticket inbound">
+          <div class="flight-badge inbound-badge">오는 편</div>
+          <div class="flight-date">2026.06.07 (일)</div>
+          <div class="flight-route">
+            <div class="flight-point">
+              <span class="flight-city">나고야</span>
+              <span class="flight-time">19:10</span>
+              <span class="flight-iata">NGO</span>
+            </div>
+            <div class="flight-middle">
+              <span class="flight-direct">직항</span>
+              <div class="flight-line">
+                <span class="flight-dot"></span>
+                <span class="flight-dash"></span>
+                <span class="plane-icon">✈</span>
+                <span class="flight-dash"></span>
+                <span class="flight-dot"></span>
+              </div>
+              <span class="flight-duration">2h 00m</span>
+            </div>
+            <div class="flight-point right">
+              <span class="flight-city">서울 / 인천</span>
+              <span class="flight-time">21:10</span>
+              <span class="flight-iata">ICN</span>
+            </div>
+          </div>
+          <div class="flight-info-row">
+            <span class="flight-info-item"><span class="fi-label">편명</span><span class="fi-val asiana">OZ123</span></span>
+            <span class="flight-info-item"><span class="fi-label">기종</span><span class="fi-val">A330</span></span>
+            <span class="flight-info-item"><span class="fi-label">클래스</span><span class="fi-val">이코노미(T)</span></span>
+            <span class="flight-info-item"><span class="fi-label">예약</span><span class="fi-val confirmed">확약</span></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 출국 전 체크리스트 -->
+    <section class="card">
+      <h2 class="section-title">✈️ 출국 전 해야될 것</h2>
+      <ul class="todo-list" id="pre-list"></ul>
+      <div class="add-row">
+        <input type="text" class="add-input" placeholder="할 일 추가..." id="pre-input" />
+        <button class="add-btn" id="pre-add-btn">+</button>
+      </div>
+    </section>
+
+    <!-- 갈 곳 / 먹을 곳 / 쇼핑 / 돈키호테 -->
+    <div class="grid-2">
+
+      <section class="card">
+        <h2 class="section-title">🎡 갈 곳</h2>
+        <ul class="todo-list" id="places-list"></ul>
+        <div class="add-row">
+          <input type="text" class="add-input" placeholder="장소 추가..." id="places-input" />
+          <button class="add-btn" id="places-add-btn">+</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">🍜 먹을 곳</h2>
+        <ul class="todo-list" id="food-list"></ul>
+        <div class="add-row">
+          <input type="text" class="add-input" placeholder="식당 추가..." id="food-input" />
+          <button class="add-btn" id="food-add-btn">+</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">🛍️ 쇼핑 리스트</h2>
+        <ul class="todo-list" id="shopping-list"></ul>
+        <div class="add-row">
+          <input type="text" class="add-input" placeholder="쇼핑 추가..." id="shopping-input" />
+          <button class="add-btn" id="shopping-add-btn">+</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">🦁 돈키호테 리스트</h2>
+        <ul class="todo-list" id="donki-list"></ul>
+        <div class="add-row">
+          <input type="text" class="add-input" placeholder="아이템 추가..." id="donki-input" />
+          <button class="add-btn" id="donki-add-btn">+</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 메모 -->
+    <section class="card memo-card">
+      <h2 class="section-title">📝 메모</h2>
+      <div class="memo-list" id="memo-list"></div>
+      <div class="memo-add-row">
+        <input type="text" class="add-input" placeholder="제목 (예: 숙소 체크인)" id="memo-title-input" />
+        <button class="add-btn" id="memo-add-btn">+</button>
+      </div>
+    </section>
+
+    <!-- 챙길 것 -->
+    <section class="card packing-card">      <h2 class="section-title">🎒 챙길 것</h2>
+
+      <div class="legend">
+        <span class="dot red"></span><span>개 중요</span>
+        <span class="dot yellow"></span><span>필수</span>
+        <span class="dot gray"></span><span>있어도 없어도</span>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('hazel', this)">🌸 Hazel</button>
+        <button class="tab-btn" onclick="switchTab('kyle', this)">🧢 Kyle</button>
+      </div>
+
+      <div class="tab-content active" id="tab-hazel">
+        <ul class="packing-list" id="packing-hazel"></ul>
+        <div class="add-row packing-add-row">
+          <select class="priority-select" id="packing-hazel-priority">
+            <option value="red">🔴 개 중요</option>
+            <option value="yellow" selected>🟡 필수</option>
+            <option value="gray">⚪ 있어도 없어도</option>
+          </select>
+          <input type="text" class="add-input" placeholder="아이템 추가..." id="packing-hazel-input" />
+          <button class="add-btn" id="packing-hazel-add-btn">+</button>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-kyle">
+        <ul class="packing-list" id="packing-kyle"></ul>
+        <div class="add-row packing-add-row">
+          <select class="priority-select" id="packing-kyle-priority">
+            <option value="red">🔴 개 중요</option>
+            <option value="yellow" selected>🟡 필수</option>
+            <option value="gray">⚪ 있어도 없어도</option>
+          </select>
+          <input type="text" class="add-input" placeholder="아이템 추가..." id="packing-kyle-input" />
+          <button class="add-btn" id="packing-kyle-add-btn">+</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>✈️ Hazel &amp; Kyle의 나고야 여행 · 2026</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
